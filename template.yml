@@ -1,0 +1,111 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+
+Parameters:
+  StageName:
+    Type: String
+    Default: dev
+  ProductLine:
+    Type: String
+    Default: data-channels
+    
+Resources:
+  hello:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: handler.hello
+      Runtime: nodejs10.x
+      CodeUri: .
+      Policies:
+        - Version: '2012-10-17'
+          Statement:
+           - Effect: Allow
+             Action:
+                - 'dynamodb:DeleteItem'
+                - 'dynamodb:GetItem'
+                - 'dynamodb:UpdateItem'
+                - 'dynamodb:PutItem'
+             Resource:
+                'Fn::Join':
+                   - ''
+                   - - 'arn:aws:dynamodb:'
+                     - Ref: 'AWS::Region'
+                     - ':'
+                     - Ref: 'AWS::AccountId'
+          
+      Events:
+        CreateAPI:
+          Type: Api
+          Properties:
+            Path: /hello
+            Method: POST
+        OtherOperationsAPI:
+          Type: Api
+          Properties:
+            Path: /hello/{itemId}
+            Method: ANY
+  piifFileConfig:
+    Type: 'AWS::DynamoDB::Table'
+    Properties:
+      TableName: piifFileConfig
+      AttributeDefinitions:
+        - AttributeName: itemId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: itemId
+          KeyType: HASH
+      BillingMode: PAY_PER_REQUEST
+      Tags:
+       - Key: Name
+         Value: piifFileConfig
+       - Key: EnvType
+         Value: !Ref StageName
+       - Key: EnvName
+         Value: !Ref StageName
+       - Key: ProductLine
+         Value: !Ref ProductLine
+       - Key: ProductComponent
+         Value: NA
+       - Key: Provisioner
+         Value: aws-sam
+       - Key: OwnerContact
+         Value: NA
+       - Key: MaintenanceContact
+         Value: NA
+       - Key: CodeRepo
+         Value: https://github.com/Hobsons/starfish-data-channels
+       - Key: PII
+         Value: true
+
+  reference:
+    Type: 'AWS::DynamoDB::Table'
+    Properties:
+      TableName: reference
+      AttributeDefinitions:
+        - AttributeName: itemId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: itemId
+          KeyType: HASH
+      BillingMode: PAY_PER_REQUEST
+      Tags:
+       - Key: Name
+         Value: reference
+       - Key: EnvType
+         Value: !Ref StageName
+       - Key: EnvName
+         Value: !Ref StageName
+       - Key: ProductLine
+         Value: !Ref ProductLine
+       - Key: ProductComponent
+         Value: NA
+       - Key: Provisioner
+         Value: aws-sam
+       - Key: OwnerContact
+         Value: NA
+       - Key: MaintenanceContact
+         Value: NA
+       - Key: CodeRepo
+         Value: https://github.com/Hobsons/starfish-data-channels
+       - Key: PII
+         Value: true
