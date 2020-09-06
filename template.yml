@@ -51,7 +51,7 @@ Resources:
         - Key: MaintainerContact
           Value: urpalranjith@gmail.com
         - Key: Repository
-          Value: ""
+          Value: ranjith-sam-code
         - Key: ProductComponent
           Value: text-messaging-service
         - Key: OwnerContact
@@ -178,7 +178,7 @@ Resources:
         - Key: MaintainerContact
           Value: urpalranjith@gmail.com
         - Key: Repository
-          Value: ""
+          Value: ranjith-sam-code
         - Key: ProductComponent
           Value: text-messaging-service
         - Key: OwnerContact
@@ -376,7 +376,7 @@ Resources:
         - Key: MaintainerContact
           Value: urpalranjith@gmail.com
         - Key: Repository
-          Value: ""
+          Value: ranjith-sam-code
         - Key: ProductComponent
           Value: text-messaging-service
         - Key: OwnerContact
