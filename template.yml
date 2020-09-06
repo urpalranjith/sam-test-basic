@@ -324,6 +324,10 @@ Resources:
             Effect: Allow
             Principal:
               Service: cloudformation.amazonaws.com
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: ssm.amazonaws.com              
         Version: "2012-10-17"
 
   PipelineRoleDefaultPolicy:
