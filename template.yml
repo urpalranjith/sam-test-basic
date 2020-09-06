@@ -342,7 +342,7 @@ Resources:
             - ssm:GetParameters
             - ssm:GetParameter
             Effect: Allow
-            Resource: "*"
+            Resource: "arn:aws:ssm:ap-south-1:026420118215:/github/personal_access_token-*"
           - Action: iam:*
             Effect: Allow
             Resource: "*"
