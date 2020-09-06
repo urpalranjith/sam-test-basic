@@ -334,6 +334,11 @@ Resources:
           - Action: cloudformation:*
             Effect: Allow
             Resource: "*"
+          - Action: 
+            - ssm:GetParameters
+            - ssm:GetParameter
+            Effect: Allow
+            Resource: "*"
           - Action: iam:*
             Effect: Allow
             Resource: "*"
