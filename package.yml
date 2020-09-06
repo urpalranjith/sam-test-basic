@@ -474,7 +474,7 @@ Resources:
     Properties:
       Handler: handler.hello
       Runtime: nodejs10.x
-      CodeUri: s3://ranjith-sam-code/5bb97218f176b829f421ce006f843d92
+      CodeUri: s3://ranjith-sam-code/4430f342c276ebf451eadda92822ab1b
       Policies:
       - Version: '2012-10-17'
         Statement:

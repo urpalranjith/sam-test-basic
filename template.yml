@@ -204,7 +204,7 @@ Resources:
           - Arn
       Source:
         Type: CODEPIPELINE
-        BuildSpec: "cicd/buildspec.yml"
+        BuildSpec: "buildspec.yml"
 
   #################################
   # DEPLOY
