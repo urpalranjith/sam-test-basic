@@ -20,4 +20,4 @@ phases:
             - echo deployment complete..
 artifacts:
     files:
-        - packaged-template.yaml
+        - package.yml
