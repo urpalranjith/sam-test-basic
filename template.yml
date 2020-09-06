@@ -14,15 +14,15 @@ Parameters:
     Default:  ap-south-1
   env:
     Type: String
-    Default: "dev"
+    Default: dev
   DeployStackName:
     Description: The stack name for CICD
     Type: String
-    Default: "basic-project"
+    Default: basic-project
   TargetStackName:
     Description: The stack name of the target service.
     Type: String
-    Default: "basic-project"
+    Default: basic-project
   GitBranch:
     Description: GitBranch
     Type: String
@@ -361,6 +361,25 @@ Resources:
           - Action: EC2:*
             Effect: Allow
             Resource: "*"
+          - Action:
+              - logs:CreateLogGroup
+              - logs:CreateLogStream
+              - logs:PutLogEvents
+            Effect: Allow
+            Resource:
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :logs:*:*:log-group:/aws/pipeline/
+                    - Ref: Build
+              - Fn::Join:
+                  - ""
+                  - - "arn:"
+                    - Ref: AWS::Partition
+                    - :logs:*:*:log-group:/aws/pipeline/
+                    - Ref: Build
+                    - :*            
           - Action: sts:AssumeRole
             Effect: Allow
             Resource:
