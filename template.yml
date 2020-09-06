@@ -465,7 +465,7 @@ Resources:
                     - PipelineRole
                     - Arn
                 StackName: !Sub ${TargetStackName}-${env}
-                TemplatePath: "BuildOutput::packaged-template.yaml"
+                TemplatePath: "BuildOutput::package.yaml"
                 ChangeSetName: !Sub a-${DeployStackName}-${env}-Deploy
               RunOrder: 1
             - Name: ExecuteChangeSet
