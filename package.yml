@@ -84,7 +84,7 @@ Resources:
       AssumeRolePolicyDocument:
         Statement:
         - Action: sts:AssumeRole
-          Effect: Allow3
+          Effect: Allow
           Principal:
             Service: codebuild.amazonaws.com
         Version: '2012-10-17'
@@ -186,9 +186,10 @@ Resources:
       Artifacts:
         Type: CODEPIPELINE
       Environment:
-        Name: BUILD_OUTPUT_BUCKET
-        Value:
-          Ref: Bucket
+        EnvironmentVariables:
+        - Name: BUILD_OUTPUT_BUCKET
+          Value:
+            Ref: Bucket
         ComputeType: BUILD_GENERAL1_SMALL
         Image: aws/codebuild/standard:2.0
         PrivilegedMode: false
@@ -505,7 +506,7 @@ Resources:
     Properties:
       Handler: handler.hello
       Runtime: nodejs10.x
-      CodeUri: s3://ranjith-sam-code/0373009db40873dd9ca5ba27860e1984
+      CodeUri: s3://ranjith-sam-code/83f148b3640d7a2c7feec19896284a61
       Policies:
       - Version: '2012-10-17'
         Statement:
