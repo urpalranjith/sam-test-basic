@@ -47,6 +47,7 @@ Resources:
     Type: AWS::S3::Bucket
     DeletionPolicy: Retain
     Properties:
+      BucketName: ranjith-sam-code
       Tags:
         - Key: MaintainerContact
           Value: urpalranjith@gmail.com
@@ -88,7 +89,7 @@ Resources:
       AssumeRolePolicyDocument:
         Statement:
           - Action: sts:AssumeRole
-            Effect: Allow
+            Effect: Allow3
             Principal:
               Service: codebuild.amazonaws.com
         Version: "2012-10-17"
