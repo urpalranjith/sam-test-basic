@@ -48,7 +48,7 @@ Resources:
       - Key: MaintainerContact
         Value: urpalranjith@gmail.com
       - Key: Repository
-        Value: ''
+        Value: data-channels
       - Key: ProductComponent
         Value: text-messaging-service
       - Key: OwnerContact
@@ -84,7 +84,7 @@ Resources:
       AssumeRolePolicyDocument:
         Statement:
         - Action: sts:AssumeRole
-          Effect: Allow
+          Effect: Allow3
           Principal:
             Service: codebuild.amazonaws.com
         Version: '2012-10-17'
@@ -170,7 +170,7 @@ Resources:
       - Key: MaintainerContact
         Value: urpalranjith@gmail.com
       - Key: Repository
-        Value: ''
+        Value: ranjith-sam-code
       - Key: ProductComponent
         Value: text-messaging-service
       - Key: OwnerContact
@@ -186,6 +186,9 @@ Resources:
       Artifacts:
         Type: CODEPIPELINE
       Environment:
+        Name: BUILD_OUTPUT_BUCKET
+        Value:
+          Ref: Bucket
         ComputeType: BUILD_GENERAL1_SMALL
         Image: aws/codebuild/standard:2.0
         PrivilegedMode: false
@@ -303,6 +306,10 @@ Resources:
           Effect: Allow
           Principal:
             Service: cloudformation.amazonaws.com
+        - Action: sts:AssumeRole
+          Effect: Allow
+          Principal:
+            Service: ssm.amazonaws.com
         Version: '2012-10-17'
   PipelineRoleDefaultPolicy:
     Type: AWS::IAM::Policy
@@ -312,6 +319,11 @@ Resources:
         - Action: cloudformation:*
           Effect: Allow
           Resource: '*'
+        - Action:
+          - ssm:GetParameters
+          - ssm:GetParameter
+          Effect: Allow
+          Resource: arn:aws:ssm:ap-south-1:026420118215:/github/personal_access_token-*
         - Action: iam:*
           Effect: Allow
           Resource: '*'
@@ -330,6 +342,25 @@ Resources:
         - Action: EC2:*
           Effect: Allow
           Resource: '*'
+        - Action:
+          - logs:CreateLogGroup
+          - logs:CreateLogStream
+          - logs:PutLogEvents
+          Effect: Allow
+          Resource:
+          - Fn::Join:
+            - ''
+            - - 'arn:'
+              - Ref: AWS::Partition
+              - :logs:*:*:log-group:/aws/pipeline/
+              - Ref: Build
+          - Fn::Join:
+            - ''
+            - - 'arn:'
+              - Ref: AWS::Partition
+              - :logs:*:*:log-group:/aws/pipeline/
+              - Ref: Build
+              - :*
         - Action: sts:AssumeRole
           Effect: Allow
           Resource:
@@ -353,7 +384,7 @@ Resources:
       - Key: MaintainerContact
         Value: urpalranjith@gmail.com
       - Key: Repository
-        Value: ''
+        Value: ranjith-sam-code
       - Key: ProductComponent
         Value: text-messaging-service
       - Key: OwnerContact
@@ -441,7 +472,7 @@ Resources:
               - Arn
             StackName:
               Fn::Sub: ${TargetStackName}-${env}
-            TemplatePath: BuildOutput::packaged-template.yaml
+            TemplatePath: BuildOutput::package.yml
             ChangeSetName:
               Fn::Sub: a-${DeployStackName}-${env}-Deploy
           RunOrder: 1
@@ -474,7 +505,7 @@ Resources:
     Properties:
       Handler: handler.hello
       Runtime: nodejs10.x
-      CodeUri: s3://ranjith-sam-code/ce910b597349b54285e200692eb53a2d
+      CodeUri: s3://ranjith-sam-code/0373009db40873dd9ca5ba27860e1984
       Policies:
       - Version: '2012-10-17'
         Statement:

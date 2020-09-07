@@ -47,12 +47,11 @@ Resources:
     Type: AWS::S3::Bucket
     DeletionPolicy: Retain
     Properties:
-      BucketName: ranjith-sam-code
       Tags:
         - Key: MaintainerContact
           Value: urpalranjith@gmail.com
         - Key: Repository
-          Value: ranjith-sam-code
+          Value: data-channels
         - Key: ProductComponent
           Value: text-messaging-service
         - Key: OwnerContact
@@ -195,6 +194,8 @@ Resources:
       Artifacts:
         Type: CODEPIPELINE
       Environment:
+        Name: BUILD_OUTPUT_BUCKET
+        Value: !Ref Bucket
         ComputeType: BUILD_GENERAL1_SMALL
         Image: aws/codebuild/standard:2.0
         PrivilegedMode: false
