@@ -13,7 +13,7 @@ phases:
     build:
         commands:
             - echo deployment started..
-            - sam package --template-file template.yml --output-template-file package.yml --s3-bucket ranjith-sam-code
+            - aws cloudformation package --template-file template.yml --output-template-file package.yml --s3-bucket ranjith-sam-code
             
     post_build:
         commands:
