@@ -23,7 +23,7 @@ Resources:
     Properties:
       Handler: handler.hello
       Runtime: nodejs10.x
-      CodeUri: hello-world/
+      CodeUri: .
       Policies:
         - Version: '2012-10-17'
           Statement:
@@ -44,7 +44,7 @@ Resources:
   HelloWorldFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
-      CodeUri: hello-world/
+      CodeUri: .
       Handler: app.lambdaHandler
       Runtime: nodejs10.x
       Events:
