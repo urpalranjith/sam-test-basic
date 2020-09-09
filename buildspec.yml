@@ -8,7 +8,8 @@ phases:
     pre_build:
         commands:
             - echo building npm
-            - npm install           
+            - npm --prefix ./hello-world/ install          
+            - find ./hello-world/node_modules -mtime +10950 -exec touch \;
 
     build:
         commands:
