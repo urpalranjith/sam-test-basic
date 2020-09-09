@@ -465,10 +465,6 @@ Resources:
           Configuration:
             ActionMode: CHANGE_SET_REPLACE
             Capabilities: CAPABILITY_IAM,CAPABILITY_AUTO_EXPAND
-            ParameterOverrides:
-              Fn::Sub: "{\n  \"SecurityGroupIds\": \"${SecurityGroupIds}\",\n  \"\
-                SubnetIdOne\": \"${SubnetIdOne}\",\n  \"SubnetIdTwo\": \"${SubnetIdTwo}\"\
-                ,\n  \"env\": \"${env}\"\n}\n"
             RoleArn:
               Fn::GetAtt:
               - PipelineRole
