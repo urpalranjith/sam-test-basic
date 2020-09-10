@@ -7,12 +7,8 @@ phases:
 
     pre_build:
         commands:
-            - npm install typescript -g
-            - echo Stage 1
-            - npm --prefix ./hello-world/ install  
             - echo building npm
-            - echo Stage 2
-            - npm run cicd_deploy-dev
+            - npm --prefix ./hello-world/ install          
             - find ./hello-world/node_modules -mtime +10950 -exec touch \;
 
     build:
