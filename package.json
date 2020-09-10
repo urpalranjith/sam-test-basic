@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "runStep": "npx ts-node hello-world/runLocalStep.ts",
-    "build": "mkdir dist && npm run compile",
+    "build": "mkdirp dist && npm run compile",
     "lint": "tslint --project tsconfig.json",
     "clean": "shx rm -rf dist coverage",
     "compile": "tsc",
