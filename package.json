@@ -19,7 +19,7 @@
     "deploy-sandbox": "npm run build && sam build && npm run sam-package-sandbox && npm run sam-deploy-sandbox",
     "sam-package-dev": "sam package --output-template-file package.yml --s3-bucket data-channels-processor-deployments-dev",
     "sam-deploy-dev": "sam deploy --template-file ./packaged-dev.yml --stack-name piiMask-stack --capabilities CAPABILITY_IAM --region us-east-1",
-    "deploy-dev": "npm run build && sam build && npm run sam-package-dev && npm run sam-deploy-dev"
+    "deploy-dev": "npm run build && sam build && npm run sam-package-dev && npm run sam-deploy-dev",
 	"cicd_deploy-dev": "npm run build && sam build"
   },
   "devDependencies": {
