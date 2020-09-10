@@ -23,7 +23,7 @@ Resources:
     Properties:
       Handler: dist/handler.hello
       Runtime: nodejs10.x
-      CodeUri: ./
+      CodeUri: 
       Policies:
         - Version: '2012-10-17'
           Statement:
