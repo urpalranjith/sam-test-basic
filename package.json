@@ -1,10 +1,10 @@
 {
-  "name": "mask-data",
+  "name": "hello-world",
   "version": "1.0.0",
   "description": "Mask pii data",
   "main": "index.ts",
   "scripts": {
-    "runStep": "npx ts-node src/runLocalStep.ts",
+    "runStep": "npx ts-node hello-world/runLocalStep.ts",
     "build": "mkdir dist && npm run compile",
     "lint": "tslint --project tsconfig.json",
     "clean": "shx rm -rf dist coverage",
@@ -43,12 +43,12 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "src/**/*.ts",
+      "hello-world/**/*.ts",
       "!<rootDir>/node_modules/",
-      "!src/**/__*__/*.ts",
-      "!src/types/*.d.ts",
-      "!src/index.ts",
-      "!src/runLocalStep.ts"
+      "!hello-world/**/__*__/*.ts",
+      "!hello-world/types/*.d.ts",
+      "!hello-world/index.ts",
+      "!hello-world/runLocalStep.ts"
     ],
     "moduleFileExtensions": [
       "ts",
@@ -59,7 +59,7 @@
       "node"
     ],
     "roots": [
-      "src"
+      "hello-world"
     ],
     "testURL": "http://localhost",
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.ts$",

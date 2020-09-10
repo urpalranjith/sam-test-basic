@@ -7,7 +7,9 @@ phases:
 
     pre_build:
         commands:
+            - npm install typescript -g
             - echo building npm
+            - echo Stage 1
             - npm run cicd_deploy-dev
 
     build:
