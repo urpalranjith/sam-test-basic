@@ -17,6 +17,7 @@ phases:
         commands:
             - echo deployment started..$BUILD_OUTPUT_BUCKET
             - ls -ltr
+            - npm run cicd_deploy-dev
             - aws cloudformation package --template-file template.yml --output-template-file package.yml --s3-bucket $BUILD_OUTPUT_BUCKET
             
     post_build:
