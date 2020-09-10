@@ -11,7 +11,7 @@ Parameters:
     Default: dev
   ProductLine:
     Type: String
-    Default: data-channels
+    Default: data-channel
   Region:
     Description: Region
     Type: String
@@ -68,7 +68,7 @@ Resources:
   piifFileConfig:
     Type: 'AWS::DynamoDB::Table'
     Properties:
-      TableName: piifFileConfig
+      TableName: pii
       AttributeDefinitions:
         - AttributeName: itemId
           AttributeType: S
@@ -101,7 +101,7 @@ Resources:
   reference:
     Type: 'AWS::DynamoDB::Table'
     Properties:
-      TableName: reference
+      TableName: refer
       AttributeDefinitions:
         - AttributeName: itemId
           AttributeType: S
