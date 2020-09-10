@@ -22,7 +22,7 @@ Resources:
     Type: 'AWS::Serverless::Function'
     Properties:
       Handler: dist/handler.hello
-      Runtime: nodejs10.x
+      Runtime: nodejs12.x
       CodeUri: ./hello-world
       Policies:
         - Version: '2012-10-17'
