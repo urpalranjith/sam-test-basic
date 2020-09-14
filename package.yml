@@ -9,7 +9,7 @@ Parameters:
     Default: dev
   ProductLine:
     Type: String
-    Default: data-channels
+    Default: data-channel
   Region:
     Description: Region
     Type: String
@@ -18,9 +18,9 @@ Resources:
   hello:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: dist/handler.hello
-      Runtime: nodejs10.x
-      CodeUri: s3://ranjith-sam-code/217a8a9af2fe97b248d4f7528fb700cb
+      Handler: dist/app.handler
+      Runtime: nodejs12.x
+      CodeUri: s3://ranjith-sam-code/6a55a1b7ee207f1da67539323a29b367
       Policies:
       - Version: '2012-10-17'
         Statement:
@@ -37,27 +37,10 @@ Resources:
               - Ref: AWS::Region
               - ':'
               - Ref: AWS::AccountId
-  HelloWorldFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      CodeUri: s3://ranjith-sam-code/217a8a9af2fe97b248d4f7528fb700cb
-      Handler: app.lambdaHandler
-      Runtime: nodejs10.x
-      Events:
-        CreateAPI:
-          Type: Api
-          Properties:
-            Path: /hello
-            Method: POST
-        OtherOperationsAPI:
-          Type: Api
-          Properties:
-            Path: /hello/{itemId}
-            Method: ANY
   piifFileConfig:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: piifFileConfig
+      TableName: pii
       AttributeDefinitions:
       - AttributeName: itemId
         AttributeType: S
@@ -92,7 +75,7 @@ Resources:
   reference:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: reference
+      TableName: refer
       AttributeDefinitions:
       - AttributeName: itemId
         AttributeType: S

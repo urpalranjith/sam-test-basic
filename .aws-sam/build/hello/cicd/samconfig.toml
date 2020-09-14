@@ -1,0 +1,12 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "data-channel-cicd"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-skt160kydc9"
+s3_prefix = "data-channel-cicd"
+region = "ap-south-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+parameter_overrides = "StageName=\"dev\" ProductLine=\"data-channels\" Region=\"ap-south-1\" env=\"dev\" DeployStackName=\"data-channels\" TargetStackName=\"data-channels\" GitBranch=\"master\" DeployParameterOverrides=\"{}\" SecurityGroupIds=\"\" SubnetIdOne=\"\" SubnetIdTwo=\"\""
+
