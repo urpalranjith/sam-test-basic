@@ -20,7 +20,7 @@
     "sam-package-dev": "sam package --output-template-file package.yml --s3-bucket ranjith-sam-code",
     "sam-deploy-dev": "sam deploy --template-file ./package.yml --stack-name test-stack --capabilities CAPABILITY_IAM --region us-east-1",
     "deploy-dev": "npm run build && sam build && npm run sam-package-dev && npm run sam-deploy-dev",
-    "cicd_deploy-dev": "npm run build && sam build"
+    "cicd_deploy-dev": "npm run build && npm run test && sam build"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.35",
