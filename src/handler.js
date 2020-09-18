@@ -16,7 +16,7 @@ exports.hello = async (event) => {
 		case 'PUT':
 			return updateItem(event);
 		default:
-			return sendResponse(404, `Unsupported method my friend yes "${event.httpMethod}"`);
+			return sendResponse(404, `Unsupported method my friend yes on 18th sept "${event.httpMethod}"`);
 	}
 };
 
