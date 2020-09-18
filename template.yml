@@ -23,7 +23,7 @@ Resources:
     Properties:
       Handler: dist/app.handler
       Runtime: nodejs12.x
-      CodeUri: "./"
+      CodeUri: ./dist
       Policies:
         - Version: '2012-10-17'
           Statement:
@@ -44,7 +44,7 @@ Resources:
   piifFileConfig:
     Type: 'AWS::DynamoDB::Table'
     Properties:
-      TableName: pii
+      TableName: pii1
       AttributeDefinitions:
         - AttributeName: itemId
           AttributeType: S
@@ -77,7 +77,7 @@ Resources:
   reference:
     Type: 'AWS::DynamoDB::Table'
     Properties:
-      TableName: refer
+      TableName: refer1
       AttributeDefinitions:
         - AttributeName: itemId
           AttributeType: S
