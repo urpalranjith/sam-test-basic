@@ -23,7 +23,7 @@ Resources:
     Properties:
       Handler: dist/app.handler
       Runtime: nodejs12.x
-      CodeUri: ./dist
+      CodeUri: "./"
       Policies:
         - Version: '2012-10-17'
           Statement:
