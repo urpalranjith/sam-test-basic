@@ -72,7 +72,7 @@ Resources:
        - Key: CodeRepo
          Value: https://github.com/urpalranjith/sam-test-basic.git
        - Key: PII
-         Value: true
+         Value: false
 
   reference:
     Type: 'AWS::DynamoDB::Table'
