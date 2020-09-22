@@ -23,5 +23,5 @@ phases:
             - echo deployment complete..
 artifacts:
     files:
-        - package.yml
+        - '**/*'
     base-directory: 'dist'
