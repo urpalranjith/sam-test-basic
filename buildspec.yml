@@ -3,12 +3,11 @@ version: 0.2
 phases:
     install:
         commands:
-            - echo started...
-
+            - echo Installation started...
+            - npm install typescript -g
     pre_build:
         commands:
-            - npm install typescript -g
-            - echo Stage 1
+            - echo pre-build
             - npm install  
             - echo building npm
             - echo Stage 2
@@ -16,7 +15,6 @@ phases:
     build:
         commands:
             - echo deployment started..$BUILD_OUTPUT_BUCKET
-            - ls -ltr
             - npm run cicd_deploy-dev
             - sam package --output-template-file package.yml --s3-bucket $BUILD_OUTPUT_BUCKET
             
@@ -26,3 +24,4 @@ phases:
 artifacts:
     files:
         - package.yml
+    base-directory: 'dist'
