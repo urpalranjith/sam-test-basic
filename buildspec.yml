@@ -16,7 +16,6 @@ phases:
         commands:
             - echo deployment started..$BUILD_OUTPUT_BUCKET
             - npm run cicd_deploy-dev
-            - cp package.yml ./dist
             - sam package --output-template-file package.yml --s3-bucket $BUILD_OUTPUT_BUCKET
             
     post_build:
@@ -25,4 +24,3 @@ phases:
 artifacts:
     files:
         - package.yml
-    base-directory: 'dist'
