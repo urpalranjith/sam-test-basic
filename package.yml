@@ -20,7 +20,7 @@ Resources:
     Properties:
       Handler: dist/app.handler
       Runtime: nodejs12.x
-      CodeUri: s3://ranjith-sam-code/6a55a1b7ee207f1da67539323a29b367
+      CodeUri: s3://ranjith-sam-code/db4d719164c5560c0e2bd55f0f6c0fc1
       Policies:
       - Version: '2012-10-17'
         Statement:
@@ -40,7 +40,7 @@ Resources:
   piifFileConfig:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: pii
+      TableName: pii1
       AttributeDefinitions:
       - AttributeName: itemId
         AttributeType: S
@@ -71,11 +71,11 @@ Resources:
       - Key: CodeRepo
         Value: https://github.com/urpalranjith/sam-test-basic.git
       - Key: PII
-        Value: true
+        Value: false
   reference:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: refer
+      TableName: refer1
       AttributeDefinitions:
       - AttributeName: itemId
         AttributeType: S

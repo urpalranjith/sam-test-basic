@@ -44,7 +44,7 @@ Resources:
   piifFileConfig:
     Type: 'AWS::DynamoDB::Table'
     Properties:
-      TableName: pii2
+      TableName: Fill
       AttributeDefinitions:
         - AttributeName: itemId
           AttributeType: S
@@ -77,7 +77,7 @@ Resources:
   reference:
     Type: 'AWS::DynamoDB::Table'
     Properties:
-      TableName: refer2
+      TableName: gill
       AttributeDefinitions:
         - AttributeName: itemId
           AttributeType: S
