@@ -1,2 +1,5 @@
+# https://docs.npmjs.com/misc/developers#keeping-files-out-of-your-package
+
+#build folders
 node_modules
 cicd
